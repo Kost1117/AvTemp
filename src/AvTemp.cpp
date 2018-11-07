@@ -2,9 +2,9 @@
 #include <vector>
 using namespace std;
 
-int Avr (vector<int>& v)
+int Avr (const vector<int>& v)
 {
-	int sum = 0;
+	int64_t sum = 0;
 	for (auto i: v)
 	{
 		sum += i;
@@ -13,12 +13,13 @@ int Avr (vector<int>& v)
 	return av;
 }
 
-void Output (vector<int> v)
+void Output (const vector<int>& v)
 {
 	vector<int> res;
-	for (int i = 0; i < static_cast<int> (v.size()); i++)
+	int av = Avr(v);
+	for (unsigned i = 0; i < v.size(); i++)
 	{
-		if (v[i] > Avr(v))
+		if (v[i] > av)
 		{
 			res.push_back(i);
 		}
